@@ -1,0 +1,123 @@
+// SCSS Start
+// Imports Start
+@import '../base';
+@import 'hamburgers/_sass/hamburgers/hamburgers.scss';
+// Imports End
+
+// Header
+.header {
+  background-color: $blue;
+  flex-direction: column;
+
+  @media ($media-desktop) {
+    padding: 0 0 0 16px;
+  }
+
+  @media (min-width: 1920px) {
+    padding: 0;
+  }
+
+  &,
+  &#{__container},
+  &#{__container} .container__menu-user,
+  &#{__container} .container__menu-user .menu-user__list,
+  &#{__container} .container__menu-user .menu-user__list .voice__button {
+    align-items: center;
+    display: flex;
+  }
+
+  &#{__container} {
+
+    @extend %container;
+
+    .container__hamburger {
+
+      @media ($media-desktop) {
+        display: none;
+      }
+    }
+
+    .container__link {
+      display: block;
+      padding: 1em 0;
+
+      &,
+      .link__logo {
+        max-width: 140px;
+        width: 100%;
+      }
+
+      .link__logo {
+
+        @extend %background;
+
+        background-image: url('/img/logo-innoloft-1.svg');
+        max-width: 77px;
+        padding: 0 0 1.2em;
+
+        @media ($media-smartphone) {
+          max-width: 117px;
+          padding: 0 0 1.8em;
+        }
+
+        @media ($media-desktop) {
+          max-width: none;
+          padding: 0 0 2em;
+        }
+      }
+    }
+
+    .container__menu-user .menu-user__list {
+        margin: 0;
+        padding: 0;
+
+        .list__voice {
+          list-style: none;
+
+          .voice__button {
+
+            @extend %font;
+
+            background-color: transparent;
+            border: 0;
+            color: $grey;
+            cursor: pointer;
+            font-size: $title;
+            padding: .5em 16px;
+
+            .button__label {
+              padding: 0 8px 0 0;
+              text-transform: uppercase;
+            }
+          }
+        }
+      }
+
+    .container__search {
+      display: none;
+      max-width: 480px;
+
+      @media ($media-smartphone) {
+        display: block;
+      }
+
+      &,
+      .search__field {
+        width: 100%;
+      }
+
+      .search__field {
+
+        @extend %font;
+
+        border: 1px solid $blue;
+        border-radius: .5rem;
+        color: $black;
+        font-size: $list;
+        padding: .3em 16px;
+      }
+    }
+  }
+}
+
+// SCSS End
